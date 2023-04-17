@@ -1,0 +1,349 @@
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    top: 0;
+    margin: 0;
+
+    height: 200px;
+    text-align: left;
+    position: fixed;
+    font-size: 30px;
+    cursor: pointer;
+    background-color:transparent;
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+
+/* #################################################################################################################################### */
+/* #################################################################################################################################### */
+
+
+body{
+    background-repeat: no-repeat;
+    margin: 0;
+    background-image: url("/resources/images/background1.jpg");
+    background-size: 100%;
+}
+
+#WelcomeMsg{
+    margin-top: 60px; 
+    margin-left: 20px; 
+    font-size: 90px; 
+    text-align:center; 
+    color:white; 
+    font-family:Georgia, 'Times New Roman', Times, serif; 
+    font-weight: bold;
+    
+    /* animation: slice 3s, dynamic 2s infinite alternate linear;
+    background: url('http://doodling.surge.sh/assets/images/bg-2.jpg');
+    -webkit-background-clip: text;
+	color: transparent;
+    filter: drop-shadow(0 0 5px #a8a4a4); */
+}
+
+
+.mainbtn{
+    height: 80px;
+    width: 200px;
+    position:relative;
+    display: inline-block;
+    margin: 40px 0;
+    justify-content: center;
+    align-items: center;
+    color: #c433f4;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    margin-right: 50px;
+    margin-top: 80px;
+}
+
+
+.mainbtn:hover{
+    background: #2a30ea;
+    color: #ffffff;
+    box-shadow: 0 0 5px #c6c9e8,
+                0 0 25px #7b98d7,
+                0 0 50px #2d2aea,
+                0 0 200px #302aea;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.333));
+}
+
+
+
+/* #################################################################################################################################### */
+/* #################################################################################################################################### */
+
+
+.login-box {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 400px;
+    padding: 15px;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 29, 29, 0.47);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-shadow: 0 3px 10px #b02aea;
+    border: 3px solid white;
+    box-shadow: 
+      1px 5px 4px rgba(0, 0, 0, 0.3), 
+      0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 30px rgba(255, 255, 255, 0.8);
+
+}
+  
+.login-box h2 {
+    margin: 0 0 10px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+  
+.login-box .user-box {
+    position: relative;
+}
+  
+.login-box .user-box input {
+    width: 100%;
+    padding: 7px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    
+}
+.login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+  
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color:#84256e ;
+    font-size: 12px;
+    
+}
+  
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #b02aea;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 0;
+    letter-spacing: 4px
+}
+  
+.login-box a:hover {
+    background: #b02aea;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #b02aea,
+                0 0 25px #b02aea,
+                0 0 50px #b02aea,
+                0 0 100px #b02aea;
+}
+  
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+  
+.login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #b02aea);
+    animation: btn-anim1 1s linear infinite;
+}
+  
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+}
+  
+.login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #b02aea);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+  
+@keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+}
+  
+.login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #b02aea);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+  
+@keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+}
+  
+.login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #b02aea);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+  
+@keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+}
+
+
+/* #################################################################################################################################### */
+/* #################################################################################################################################### */
+
+
+#aboutDialog{
+    z-index: 9999;
+    display:none;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    height: 80%;
+    background-color: #eeb8b8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 10px red;
+    filter: drop-shadow(0 0 20px #000000) drop-shadow(0 0 60px #00ffb3);
+}
+
+.modalHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+
+#closeAbout {
+    position: absolute;
+    color: #000000;
+    top: 0;
+    right: 0;
+    font-size: 70px;
+    font-weight: bold;
+}
+    
+#closeAbout:hover,
+#closeAbout:focus {
+    color: #00a2ff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* #################################################################################################################################### */
+/* #################################################################################################################################### */
