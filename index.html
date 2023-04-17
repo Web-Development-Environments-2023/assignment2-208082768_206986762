@@ -4,6 +4,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <title>Space Invaders Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
 
@@ -134,19 +135,73 @@
 
 
     <dialog id="aboutDialog">
-      <span id="closeAbout" onclick="closeModal()">&times;</span>	
+        <span id="closeAbout" onclick="closeModal()">&times;</span>	
       
-      <div class="modalHeader">
-          <span><h2>Welcome to SPACESHIP WAR game</h2></span>
-      </div>
+        <div class="modalHeader">
+            <span><h2>Welcome to Space Invaders Game!</h2></span>
+        </div>
       
-      <div class="modalText">
-          <p>
-          </p>
-      </div>
-  </dialog>
+        <div class="modalText">
+            <p>
+                <b><u>Introduction</u></b><br><br>
+                Your mission, should you choose to accept it, is to eliminate all the bad spaceships as fast as possible, and to protect yourself.
+                Note that you only have 3 lives, make it count.<br>
+                Good luck.
+
+                <br><br><br>
+
+                <b><u>Rules</u></b><br>
+                <ul>
+                    <li>Use the arrow keys to move.</li>
+                    <li>Use the spacebar to shoot</li>
+                    <li>Note that there is a timer set to 2 mins, you can modify it through the settings screen.</li>
+                </ul>
+
+                <br><br>
+
+                <b><u>Plugins</u></b><br>
+                <ul>
+                    <li>jQuery Validation Plugin.</li>
+                </ul>
+
+            </p>
+        </div>
+    </dialog>
 
 
+
+    <dialog id="contactDialog">
+        <span id="closeContact" onclick="closeContactModal()">&times;</span>	
+      
+        <div class="modalHeader">
+            <span><h2>Welcome to Our Space Game!</h2></span>
+        </div>
+      
+        <div class="modalText">
+            <p>
+                <b><u>Introduction</u></b><br><br>
+                This game was developed by Eliya Ballout & Muhammad A'utallah
+
+                <br><br><br>
+
+                <b><u>For more contact information:</u></b><br>
+                Contact us at 000-000-0000<br><br>
+                Or send us a mail:<br><br>
+                
+                <a id="mailTo" style="width: 50% ;float: left;" href="mailto:eliyabal@post.bgu.ac.il">
+                    <i style="font-size:30px;" class="fa">&#xf0e0;</i><br>
+                    eliyabal@post.bgu.ac.il
+                </a>
+            
+                  <a id="mailTo" style="width: 50%;float: right; " href="mailto:mu99ot@post.bgu.ac.il">
+                    <i style="font-size:30px" class="fa">&#xf0e0;</i><br>
+                    mu99ot@post.bgu.ac.il
+                </a>
+
+
+            </p>
+        </div>
+    </dialog>
 
 
 

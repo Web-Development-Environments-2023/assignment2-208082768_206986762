@@ -311,11 +311,9 @@ body{
     transform: translate(-50%, -50%);
     width: 55%;
     height: 80%;
-    background-color: #eeb8b8;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 5px 10px red;
-    filter: drop-shadow(0 0 20px #000000) drop-shadow(0 0 60px #00ffb3);
 }
 
 .modalHeader{
@@ -323,10 +321,16 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 5px 0;
-    border-bottom: 1px solid #ccc;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid #000000;
     margin-bottom: 5px;
 }
 
+.modalText{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 #closeAbout {
     position: absolute;
@@ -339,7 +343,7 @@ body{
     
 #closeAbout:hover,
 #closeAbout:focus {
-    color: #00a2ff;
+    color: #ff0000;
     text-decoration: none;
     cursor: pointer;
 }
@@ -347,3 +351,40 @@ body{
 
 /* #################################################################################################################################### */
 /* #################################################################################################################################### */
+
+
+#contactDialog{
+    z-index: 9999;
+    display:none;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    height: 80%;
+    background-color: #999595;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#closeContact {
+    position: absolute;
+    color: #000000;
+    top: 0;
+    right: 0;
+    font-size: 70px;
+    font-weight: bold;
+}
+    
+#closeContact:hover,
+#closeContact:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* #################################################################################################################################### */
+/* #################################################################################################################################### */
+
+
