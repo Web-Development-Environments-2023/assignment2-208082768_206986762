@@ -1,3 +1,7 @@
+/* #################################################################################################################################### */
+/* #################################################### SideBar Menu ################################################################## */
+
+
 /* The sidebar menu */
 .sidebar {
     height: 100%; /* 100% Full-height */
@@ -128,52 +132,55 @@ body{
 /* #################################################################################################################################### */
 
 
-.login-box {
+#RegisterPage {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
-    width: 400px;
+    width: 450px;
+    height: 600px;
     padding: 15px;
     transform: translate(-50%, -50%);
-    background: rgba(30, 29, 29, 0.47);
+    background: rgba(30, 29, 29, 0.838);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    text-shadow: 0 3px 10px #b02aea;
+    text-shadow: 0 3px 10px #ea2a2a;
     border: 3px solid white;
     box-shadow: 
       1px 5px 4px rgba(0, 0, 0, 0.3), 
       0 0 10px rgba(255, 255, 255, 0.6),
-      0 0 30px rgba(255, 255, 255, 0.8);
+      0 0 30px rgb(255, 0, 0);
 
 }
   
-.login-box h2 {
-    margin: 0 0 10px;
+#RegisterPage h2 {
+    font-size: 30px;
+    margin: 0 0 20px;
     padding: 0;
     color: #fff;
     text-align: center;
 }
   
-.login-box .user-box {
+.user-box {
     position: relative;
 }
   
-.login-box .user-box input {
+.user-box input {
     width: 100%;
     padding: 7px 0;
-    font-size: 16px;
+    font-size: 15px;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 22px;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
     background: transparent;
     
 }
-.login-box .user-box label {
+
+.user-box label {
     position: absolute;
     top:0;
     left: 0;
@@ -184,21 +191,24 @@ body{
     transition: .5s;
 }
   
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
     top: -20px;
     left: 0;
     color:#84256e ;
-    font-size: 12px;
+    font-size: 13px;
     
 }
   
-.login-box form a {
+#submit {
     position: relative;
     display: inline-block;
+    background-color: #000000;
+    border-radius: 10px;
     padding: 10px 20px;
     color: #b02aea;
     font-size: 16px;
+    font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
@@ -207,94 +217,56 @@ body{
     letter-spacing: 4px
 }
   
-.login-box a:hover {
+#submit:hover {
     background: #b02aea;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #b02aea,
+    box-shadow: 0 0 5px #2a34ea,
                 0 0 25px #b02aea,
                 0 0 50px #b02aea,
                 0 0 100px #b02aea;
 }
-  
-.login-box a span {
-    position: absolute;
+ 
+label.error {
+    color: red;
+    font-size: 10px;
     display: block;
+    top: 50%;
+}
+
+
+/* ###################################################### */
+
+
+#LoginPage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 350px;
+    padding: 60px;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 29, 29, 0.838);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-shadow: 0 3px 10px #ea2a2a;
+    border: 3px solid white;
+    box-shadow: 
+      1px 5px 4px rgba(0, 0, 0, 0.3), 
+      0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 30px rgb(255, 0, 0);
+
 }
   
-.login-box a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #b02aea);
-    animation: btn-anim1 1s linear infinite;
-}
-  
-@keyframes btn-anim1 {
-    0% {
-        left: -100%;
-    }
-    50%,100% {
-      left: 100%;
-    }
-}
-  
-.login-box a span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #b02aea);
-    animation: btn-anim2 1s linear infinite;
-    animation-delay: .25s
-}
-  
-@keyframes btn-anim2 {
-    0% {
-      top: -100%;
-    }
-    50%,100% {
-      top: 100%;
-    }
-}
-  
-.login-box a span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #b02aea);
-    animation: btn-anim3 1s linear infinite;
-    animation-delay: .5s
-}
-  
-@keyframes btn-anim3 {
-    0% {
-      right: -100%;
-    }
-    50%,100% {
-      right: 100%;
-    }
-}
-  
-.login-box a span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #b02aea);
-    animation: btn-anim4 1s linear infinite;
-    animation-delay: .75s
-}
-  
-@keyframes btn-anim4 {
-    0% {
-      bottom: -100%;
-    }
-    50%,100% {
-      bottom: 100%;
-    }
+#LoginPage h2 {
+    font-size: 30px;
+    margin: 0 0 20px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
 }
 
 
@@ -314,6 +286,28 @@ body{
     background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
+    
+
+    /* position: absolute;
+    z-index: 9999;
+    top: 52%;
+    left: 50%;
+    width: 55%;
+    height: 80%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background: rgba(50, 45, 45, 0.728);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-shadow: 0 3px 10px #b02aea;
+    border: 3px solid white;
+    box-shadow: 
+      1px 5px 4px rgba(0, 0, 0, 0.3), 
+      0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 30px rgba(255, 255, 255, 0.8); */
 }
 
 .modalHeader{
