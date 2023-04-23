@@ -90,7 +90,7 @@ $.validator.addMethod("lettersOnly", function(value, element) {
 
 
 function submitRegister(){
-    let $inputs = $('#RForm :input');
+    let $inputs = $('#RForm input');
     let info = {};
     $inputs.each(function() {
         info[this.name] = $(this).val();

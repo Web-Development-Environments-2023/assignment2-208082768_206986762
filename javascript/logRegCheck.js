@@ -1,4 +1,3 @@
-let userLogin = null;
 const allUsers = [];
 allUsers.push({username: "p", email: "test@gmail.com", password: "testuser", firstname: "Tester", lastname: "Tester", birthDate: "04/23/2023"})
 
@@ -13,7 +12,7 @@ function addUser(uName, eMail, pass, fName, lName, bd ) {
 
 function isValidUser(user, pass) {
     for (let i = 0; i < allUsers.length; i++) {
-        if (allUsers[i].username === user && allUsers[i].password === pass) {
+        if (allUsers[i].username == user && allUsers[i].password == pass) {
             return true;
         }
     }
@@ -22,15 +21,15 @@ function isValidUser(user, pass) {
 
 
 function loginSubmit(){
-    let $inputs = $('#LForm :input');
+    let $inputs = $('#LForm input');
     let info = {};
+    console.log($inputs);
     $inputs.each(function() {
         info[this.name] = $(this).val();
     });
 
-    console.log(values);
-    if(isValidUser(values["username"], values["password"])){        
-        LoginToSettingDisplay();
+    if(isValidUser(info["username"], info["password"])){       
+        goToSettingsPage();
     }
 
     else {
@@ -40,20 +39,14 @@ function loginSubmit(){
     }
 }
 
-// TODO - check this
+
 function clearLogPage(){
-    document.getElementById('usernameLogin').value='';
-    document.getElementById('passwordLogin').value='';
+    document.getElementById('LForm').reset();
 }
 
-// TODO - check this
+
 function clearRegPage(){
-	document.getElementById('username').value = '';
-	document.getElementById('email').value = '';
-	document.getElementById('password').value = '';
-	document.getElementById('passwordAuth').value = '';
-    document.getElementById('firstname').value = '';
-	document.getElementById('lastname').value = '';
-    document.getElementById('birthDate').value = '';
+    document.getElementById('RForm').reset();
+    $('label[id*="error"]').text('');
 }
 

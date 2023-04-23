@@ -1,7 +1,7 @@
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("mySidebar").style.width = "180px";
+  document.getElementById("main").style.marginLeft = "180px";
 }
   
   
@@ -22,6 +22,8 @@ function welcomePage(){
   $("#LoginPage").hide();
   $("#aboutPage").hide();
   $("#contactPage").hide();
+  $("#settingsPage").hide();
+  $("#footer").show();
   clearLogPage();
   clearRegPage();
   closeNav();
@@ -36,6 +38,8 @@ function registerPage(){
   $("#LoginPage").hide();
   $("#aboutPage").hide();
   $("#contactPage").hide();
+  $("#settingsPage").hide();
+  $("#footer").hide();
   closeNav();
 }
 
@@ -48,8 +52,11 @@ function loginPage(){
   $("#LoginPage").show();
   $("#aboutPage").hide();
   $("#contactPage").hide();
+  $("#settingsPage").hide();
+  $("#footer").hide();
   closeNav();
 }
+
 
 
 function aboutPage(){
@@ -73,22 +80,6 @@ function closeModal(){
 }
 
 
-function closeModalOnEscape(event) {
-  if (event.key === "Escape") {
-    closeModal();
-  }
-}
-
-//check function
-//TODO
-function closeModalOnClickOutside(event) {
-  // var dialog = $("#aboutDialog");
-  // var target = $(event.target);
-  // if (!target.is(dialog) && !dialog.has(target).length) {
-  //     closeModal();
-  // }
-}
-
 
 function contactPage(){
   openContactModal();
@@ -100,14 +91,59 @@ function openContactModal(){
   $("#aboutDialog").hide();
   $("#contactDialog").show();
   document.addEventListener("keydown", closeModalOnEscape);
-  document.addEventListener("click", closeModalOnClickOutside);
+  document.addEventListener("click", closeContactModalOnClickOutside);
 }
 
 
 function closeContactModal(){
   $("#contactDialog").hide();
   document.removeEventListener("keydown", closeModalOnEscape);
-  document.removeEventListener("click", closeModalOnClickOutside);
+  document.removeEventListener("click", closeContactModalOnClickOutside);
 }
 
+
+function closeModalOnEscape(e) {
+  if (e.key === "Escape") {
+    closeModal();
+    closeContactModal();
+  }
+}
+
+
+function closeModalOnClickOutside() {
+  $(document).mouseup(function(e) {
+    let dialog = $("#aboutDialog");
+    let target = $(e.target);
+    if (!target.is(dialog) && !dialog.has(target).length) {
+        dialog.hide();
+    }
+  });
+}
+
+
+function closeContactModalOnClickOutside() {
+  $(document).mouseup(function(e) {
+    let dialog = $("#contactDialog");
+    let target = $(e.target);
+    if (!target.is(dialog) && !dialog.has(target).length) {
+        dialog.hide();
+    }
+  });
+}
+
+
+/* #################################################################################################################################### */
+/* #################################################################################################################################### */
+
+
+function goToSettingsPage(){
+  $("#WelcomePage").hide();
+  $("#RegisterPage").hide();
+  $("#LoginPage").hide();
+  $("#aboutPage").hide();
+  $("#contactPage").hide();
+  $("#settingsPage").show();
+  clearLogPage();
+  clearRegPage();
+}
 
