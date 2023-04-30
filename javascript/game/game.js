@@ -9,6 +9,8 @@ var playerBulletController;
 var enemyBulletController;
 var enemyController;
 let isGameOver;
+let isTimeLeft;
+let isLives;
 let didWin;
 var background;
 var defaultXVelocity;
@@ -31,7 +33,7 @@ function checkGameOver() {
 
     if (enemyBulletController.collideWith(player)) {
         player.lives -= 1;
-        if (player.lives <= 0) { isGameOver = true; }
+        if (player.lives <= 0) { isGameOver = true; isLives = true; }
     }
     if (enemyController.enemyRows.length === 0) {
         didWin = true;
@@ -41,12 +43,12 @@ function checkGameOver() {
 
 function displayGameOver() {
     if (isGameOver) {
-        let text = didWin ? "You Win" : "Game Over";
-        let textOffset = didWin ? 3.5 : 5;
+        let text = didWin ? "Champion!" : isLives ? "You Lost" : points >= 100 ? "Winner!" : `${points}\nyou can do better`;
 
         ctx.fillStyle = "white";
         ctx.font = "70px Arial";
-        ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+        ctx.fillText(text, canvas.width / (text.length / 2), canvas.height / 2);
+        stopTimer();
     }
     // resetElements(); // reinitialize all game elements
     // stopTimer(); // terminate previous interval timer
@@ -80,18 +82,11 @@ function increaseVelocity() {
     enemyController.defaultXVelocity += enemyController.defaultXVelocity;
 }
 function drawLives() {
-    let space = 0;
+    let img = new Image();
+    img.src = `/resources/images/live.png`;
     for (let i = 0; i < player.lives; i++) {
-        let img = new Image();
-        img.src = `/resources/images/icon3.png`;
-        lives.push(img);
-        space += 1;
+        ctx.drawImage(img, canvas.width / 2 - i * canvas.height / 75, canvas.height / 75, canvas.height / 75, canvas.height / 75)
     };
-
-    lives.forEach((live) => {
-        ctx.drawImage(live, canvas.width / 2 - space * canvas.height / 160, canvas.height / 320, canvas.height / 160, canvas.height / 160);
-        space -= 1;
-    });
 }
 
 function game() {
@@ -99,8 +94,8 @@ function game() {
     checkGameOver();
     displayGameOver();
     if (!isGameOver) {
-        drawLives();
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+        drawLives();
         points += enemyController.draw(ctx);
         player.draw(ctx);
         playerBulletController.draw(ctx);
@@ -110,9 +105,9 @@ function game() {
         displayTimeRemaining();
         // if the timer reached zero
         if (timeLeft <= 0) {
-            console.log("here");
             stopTimer();
             isGameOver = true;
+            isTimeLeft = true;
             // showGameOverDialog("You lost"); // show the losing dialog
         }
     }
@@ -138,8 +133,8 @@ function setupGame() {
     ctx = canvas.getContext("2d"); // used for drawing on the canvas
 
     // TODO Change
-    canvas.width = window.innerWidth/2;
-    canvas.height = window.innerHeight/1.1;
+    canvas.width = window.innerWidth / 2.2;
+    canvas.height = window.innerHeight / 1.3;
 
     defaultXVelocity = 3;
 
@@ -150,6 +145,7 @@ function setupGame() {
     enemyController = new EnemyController(canvas, defaultXVelocity, enemyBulletController, playerBulletController);
     isGameOver = false;
     didWin = false;
+    isLives = false;
     // TODO change canvas height and weight according to the current webpage
 
     background = new Image();
@@ -159,7 +155,7 @@ function setupGame() {
     timeElapsed = 0; // increment the time elapsed
     timeLeft = document.getElementById("time").value; // start the countdown at 10 seconds
     points = 0;
-    lives = new Array();
+    isTimeLeft = false;
 
     game();
     startTimer(); // starts the game loop

@@ -73,37 +73,37 @@ export default class Player {
     // TODO - check conf. keys
 
     keydown = (event) => {
-        if (event.code == "ArrowUp") {
+        if (event.code == "ArrowUp" || event.key == document.querySelector("#up").value) {
             this.upPressed = true;
         }
-        if (event.code == "ArrowDown") {
+        if (event.code == "ArrowDown" || event.key == document.querySelector("#down").value) {
             this.downPressed = true;
         }
-        if (event.code == "ArrowRight") {
+        if (event.code == "ArrowRight" || event.key == document.querySelector("#right").value) {
             this.rightPressed = true;
         }
-        if (event.code == "ArrowLeft") {
+        if (event.code == "ArrowLeft" || event.key == document.querySelector("#left").value) {
             this.leftPressed = true;
         }
-        if (event.code == "Space") {
+        if (event.code == "Space" || event.key == document.querySelector("#shoot").value) {
             this.shootPressed = true;
         }
     };
 
     keyup = (event) => {
-        if (event.code == "ArrowUp") {
+        if (event.code == "ArrowUp" || event.key == document.querySelector("#up").value) {
             this.upPressed = false;
         }
-        if (event.code == "ArrowDown") {
+        if (event.code == "ArrowDown" || event.key == document.querySelector("#down").value) {
             this.downPressed = false;
         }
-        if (event.code == "ArrowRight") {
+        if (event.code == "ArrowRight" || event.key == document.querySelector("#right").value) {
             this.rightPressed = false;
         }
-        if (event.code == "ArrowLeft") {
+        if (event.code == "ArrowLeft" || event.key == document.querySelector("#left").value) {
             this.leftPressed = false;
         }
-        if (event.code == "Space") {
+        if (event.code == "Space" || event.key == document.querySelector("#shoot").value) {
             this.shootPressed = false;
         }
     };
