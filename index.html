@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/css/menuStyle.css" />
+    <link rel="stylesheet" type="text/css" href="/css/MenuStyle.css" />
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" type="text/css" href="/css/gameStyle.css" />
     <title>Space Invaders Game</title>
@@ -61,7 +61,7 @@
                     <label for="passwordLogin">Password</label>
                 </div>
 
-                <button id="submit" type="submit" onclick="loginSubmit()">
+                <button class="submit" type="submit" onclick="loginSubmit()">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -113,7 +113,7 @@
                     <label for="birthDate"></label>
                 </div>
 
-                <button id="submit" type="submit" value="Register">
+                <button class="submit" type="submit" value="Register">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -282,14 +282,14 @@
 
             <br><br>
 
-            <button id="submit" onclick="gamePage()">Start Game!</button>
+            <button class="submit" onclick="gamePage()">Start Game!</button>
 
         </div>
         <center>
             <div id="game" style="display: none;">
                 <canvas id="gameBoard"></canvas>
                 <br><br>
-                <button id="submit" onclick="setupGame()">Play Again!</button>
+                <button class="submit" onclick="setupGame()">Play Again!</button>
             </div>
 
         </center>
