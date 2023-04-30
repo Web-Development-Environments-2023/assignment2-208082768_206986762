@@ -1,4 +1,4 @@
-import Bullet from "/javascript/game/bullet.js";
+import Bullet from "./bullet.js";
 var DEFAULT_X_ANGLE = 0;
 var DEFAULT_Y_ANGLE;
 

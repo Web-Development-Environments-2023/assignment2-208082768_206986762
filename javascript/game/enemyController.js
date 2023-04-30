@@ -1,5 +1,5 @@
-import Enemy from "/javascript/game/enemy.js";
-import MovingDirections from "/javascript/game/movingDirections.js";
+import Enemy from "./enemy.js";
+import MovingDirections from "./movingDirections.js";
 
 var DEFAULT_X_ANGLE = 0;
 var DEFAULT_Y_ANGLE;
