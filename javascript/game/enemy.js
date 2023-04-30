@@ -3,12 +3,13 @@ export default class Enemy {
         this.x = x;
         this.y = y;
         this.image = new Image();
-        this.image.src = `/resources/images/enemyShip${imageNumber + 3}.png`;
+        this.image.src = `/resources/images/enemyShip${imageNumber}.png`;
         // TODO consider height and width of the current screen.
         this.canvas = canvas;
+        this.point = imageNumber;
         
         this.width = canvas.width/15;
-        this.height = canvas.height/15;
+        this.height = canvas.height/20;
     }
     draw(ctx) {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);

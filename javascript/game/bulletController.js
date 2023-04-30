@@ -1,4 +1,6 @@
 import Bullet from "/javascript/game/bullet.js";
+var DEFAULT_X_ANGLE = 0;
+var DEFAULT_Y_ANGLE;
 
 export default class BulletController {
     bullets = [];
@@ -14,12 +16,13 @@ export default class BulletController {
         this.shootSound.volume = 0.1;
 
         this.player = player;
+        DEFAULT_Y_ANGLE = this.canvas.height / 20;
     }
 
     draw(ctx) {
 
         this.bullets = this.bullets.filter(
-            (bullet) => bullet.y + bullet.height > 0 && bullet.y <= this.canvas.height
+            (bullet) => bullet.y > DEFAULT_Y_ANGLE && bullet.y <= this.canvas.height
         );
 
         this.bullets.forEach((bullet) => bullet.draw(ctx));
@@ -63,18 +66,5 @@ export default class BulletController {
             }
             this.timeTillNextBulletAllowed = timeTillNextBulletAllowed;
         }
-    }
-
-    collideWith(sprite) {
-        const bulletThatHitSpriteIndex = this.bullets.findIndex((bullet) =>
-            bullet.collideWith(sprite)
-        );
-
-        if (bulletThatHitSpriteIndex >= 0) {
-            this.bullets.splice(bulletThatHitSpriteIndex, 1);
-            return true;
-        }
-
-        return false;
     }
 }

@@ -1,21 +1,23 @@
 import Enemy from "/javascript/game/enemy.js";
 import MovingDirections from "/javascript/game/movingDirections.js";
+
+var DEFAULT_X_ANGLE = 0;
+var DEFAULT_Y_ANGLE;
+
 export default class EnemyController {
     // 2-D Array representing enemies types distribution.
     // zero-repressenting dead enemy.
     enemyMap = [
-        [1, 1, 1, 1, 1],
-        [2, 3, 3, 3, 2],
-        [2, 3, 3, 3, 2],
-        [1, 1, 1, 1, 1],
+        [20, 20, 20, 20, 20],
+        [15, 15, 15, 15, 15],
+        [10, 10, 10, 10, 10],
+        [5, 5, 5, 5, 5],
     ];
 
     // 2-D Array representing enemies objects.
     enemyRows = [];
     currenDirection = MovingDirections.right;
     xVelocity = 0;
-    fireBulletTimerDefault = 1;
-    fireBulletTimer = this.fireBulletTimerDefault;
 
     constructor(canvas, defaultXVelocity, enemyBulletController, playerBulletController) {
         this.canvas = canvas;
@@ -24,15 +26,18 @@ export default class EnemyController {
         this.playerBulletController = playerBulletController;
         this.enemyDeathSound = new Audio("/resources/sounds/enemy-death.wav");
         this.enemyDeathSound.volume = 0.5;
+        this.fireBulletTimerDefault = defaultXVelocity;
+        this.fireBulletTimer = this.fireBulletTimerDefault;
+        DEFAULT_Y_ANGLE = canvas.height / 20;
         this.createEnemies();
     }
 
     // draw the enemies according to the distribution.
     draw(ctx) {
         this.updateVelocityAndDirections();
-        this.collisionDetection();
         this.drawEnemies(ctx);
         this.fireBullet();
+        return this.collisionDetection();
     }
 
     fireBullet() {
@@ -47,9 +52,11 @@ export default class EnemyController {
     }
 
     collisionDetection() {
+        var points = 0;
         this.enemyRows.forEach((enemyRow) => {
             enemyRow.forEach((enemy, enemyIndex) => {
                 if (this.playerBulletController.collideWith(enemy)) {
+                    points += enemy.point;
                     this.enemyDeathSound.currentTime = 0;
                     this.enemyDeathSound.play();
                     enemyRow.splice(enemyIndex, 1);
@@ -58,6 +65,7 @@ export default class EnemyController {
         });
         // Give us a new array includes the not empty rows.
         this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
+        return points;
     }
 
     updateVelocityAndDirections() {
@@ -103,7 +111,7 @@ export default class EnemyController {
             this.enemyRows[rowIndex] = [];
             row.forEach((enemyNumber, enemyIndex) => {
                 if (enemyNumber > 0) {
-                    this.enemyRows[rowIndex].push(new Enemy(this.canvas, enemyIndex * this.canvas.width / 13, rowIndex * this.canvas.height / 13, enemyNumber))
+                    this.enemyRows[rowIndex].push(new Enemy(this.canvas, enemyIndex * this.canvas.width / 13, DEFAULT_Y_ANGLE + rowIndex * this.canvas.height / 13, enemyNumber))
                 }
 
             })

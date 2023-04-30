@@ -1,35 +1,3 @@
-let myShip = document.getElementById("myShip1");
-
-
-function chooseShip(selectedShip) {
-    switch (selectedShip) {
-        case "/resources/images/myShip1.png":
-            document.getElementById("myShip1").style.backgroundColor = "red";
-            document.getElementById("myShip2").style.backgroundColor = "#b2b3a1";
-            document.getElementById("myShip3").style.backgroundColor = "#b2b3a1";
-
-            break;
-
-        case "/resources/images/myShip2.png":
-            document.getElementById("myShip1").style.backgroundColor = "#b2b3a1";
-            document.getElementById("myShip2").style.backgroundColor = "red";
-            document.getElementById("myShip3").style.backgroundColor = "#b2b3a1";
-
-            break;
-
-        case "/resources/images/myShip3.png":
-            document.getElementById("myShip1").style.backgroundColor = "#b2b3a1";
-            document.getElementById("myShip2").style.backgroundColor = "#b2b3a1";
-            document.getElementById("myShip3").style.backgroundColor = "red";
-
-            break;
-    }
-
-    myShip = selectedShip;
-}
-//TODO don't forget moving limit
-// 40% from height
-
 export default class Player {
     rightPressed = false;
     leftPressed = false;
@@ -49,7 +17,7 @@ export default class Player {
 
         //TODO - change to myShip
         this.image = new Image();
-        this.image.src = "/resources/images/icon3.png"
+        this.image.src = window.playerShip;
         // this.image = myShip;
 
         this.bulletController = bulletController;
