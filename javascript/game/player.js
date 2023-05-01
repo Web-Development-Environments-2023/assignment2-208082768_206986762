@@ -6,8 +6,8 @@ export default class Player {
     shootPressed = false;
     leftShootPressed = false;
     rightShootPressed = false;
-    leftAvail = true;
-    rightAvail = true;
+    leftAvail = document.querySelector("#Rcrosswise").checked;
+    rightAvail = document.querySelector("#Lcrosswise").checked;
 
     constructor(canvas, velocity, bulletController, lives = 3) {
         this.canvas = canvas;
@@ -21,7 +21,7 @@ export default class Player {
 
         //TODO - change to myShip
         this.image = new Image();
-        this.image.src = window.playerShip;
+        this.image.src = window.playerShip == null? "resources/images/myShip1.png": window.playerShip;
         // this.image = myShip;
 
         this.bulletController = bulletController;
