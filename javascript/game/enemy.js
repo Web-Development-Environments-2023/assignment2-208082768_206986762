@@ -3,7 +3,7 @@ export default class Enemy {
         this.x = x;
         this.y = y;
         this.image = new Image();
-        this.image.src = `/resources/images/enemyShip${imageNumber}.png`;
+        this.image.src = `resources/images/enemyShip${imageNumber}.png`;
         // TODO consider height and width of the current screen.
         this.canvas = canvas;
         this.point = imageNumber;
