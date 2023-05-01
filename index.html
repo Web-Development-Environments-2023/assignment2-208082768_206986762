@@ -20,6 +20,16 @@
 
 
 <body>
+    
+    <style>
+        body {
+            background-repeat: no-repeat;
+            margin: 0;
+            background-image: url("resources/images/background1.jpg");
+            background-size: auto;
+        }
+    </style> 
+
 
     <div id="mySidebar" class="sidebar">
         <b href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</b>
@@ -285,14 +295,17 @@
             <button class="submit" onclick="gamePage()">Start Game!</button>
 
         </div>
+
+
+
         <center>
             <div id="game" style="display: none;">
                 <canvas id="gameBoard"></canvas>
                 <br><br>
                 <button class="submit" onclick="setupGame()">Play Again!</button>
             </div>
-
         </center>
+
 
 
         <footer id="footer">
@@ -313,6 +326,8 @@
 
     </div>
 
+
+    
     <script type="module" src="javascript/game/game.js"></script>
     <script type="text/javascript" src="javascript/menu.js"></script>
     <script type="text/javascript" src="javascript/registerValidation.js"></script>
