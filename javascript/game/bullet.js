@@ -1,10 +1,12 @@
 export default class Bullet {
-    constructor(canvas, x, y, velocity, bulletColor) {
+    constructor(canvas, x, y, velocity, bulletColor, isDiag = false, diagDirection = "") {
         this.canvas = canvas;
         this.x = x;
         this.y = y;
         this.velocity = velocity;
         this.bulletColor = bulletColor;
+        this.isDiag = isDiag;
+        this.diagDirection = diagDirection;
 
         this.width = this.canvas.width / 200;
         this.height = this.canvas.height / 38;
@@ -12,6 +14,9 @@ export default class Bullet {
 
     draw(ctx) {
         this.y += this.velocity;
+        if (this.isDiag) {
+            this.x += this.diagDirection === "l" ? (this.velocity) : (-this.velocity);
+        }
         ctx.fillStyle = this.bulletColor;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }

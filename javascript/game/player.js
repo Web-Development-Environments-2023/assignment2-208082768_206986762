@@ -4,6 +4,10 @@ export default class Player {
     upPressed = false;
     downPressed = false;
     shootPressed = false;
+    leftShootPressed = false;
+    rightShootPressed = false;
+    leftAvail = true;
+    rightAvail = true;
 
     constructor(canvas, velocity, bulletController, lives = 3) {
         this.canvas = canvas;
@@ -28,6 +32,12 @@ export default class Player {
     draw(ctx) {
         if (this.shootPressed) {
             this.bulletController.shoot(this.x + this.width / 2, this.y - this.height / 4, -this.velocity, 8);
+        }
+        if (this.leftShootPressed) {
+            this.bulletController.shoot(this.x + this.width / 2, this.y - this.height / 4, -this.velocity, 8, true, "l");
+        }
+        if (this.rightShootPressed) {
+            this.bulletController.shoot(this.x + this.width / 2, this.y - this.height / 4, -this.velocity, 8, true, "r");
         }
         this.move();
         this.collideWithWalls();
@@ -88,6 +98,12 @@ export default class Player {
         if (event.code == "Space" || event.key == document.querySelector("#shoot").value) {
             this.shootPressed = true;
         }
+        if (event.key == 'x' && this.leftAvail) {
+            this.rightShootPressed = true;
+        }
+        if (event.key == 'z' && this.rightAvail) {
+            this.leftShootPressed = true;
+        }
     };
 
     keyup = (event) => {
@@ -106,5 +122,12 @@ export default class Player {
         if (event.code == "Space" || event.key == document.querySelector("#shoot").value) {
             this.shootPressed = false;
         }
+        if (event.key == 'x' && this.leftAvail) {
+            this.rightShootPressed = false;
+        }
+        if (event.key == 'z' && this.rightAvail) {
+            this.leftShootPressed = false;
+        }
+
     };
 }

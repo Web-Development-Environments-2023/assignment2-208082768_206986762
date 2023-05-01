@@ -1,6 +1,6 @@
 import Bullet from "./bullet.js";
 var DEFAULT_X_ANGLE = 0;
-var DEFAULT_Y_ANGLE;
+var DEFAULT_Y_ANGLE = 0;
 
 export default class BulletController {
     bullets = [];
@@ -23,6 +23,7 @@ export default class BulletController {
 
         this.bullets = this.bullets.filter(
             (bullet) => bullet.y > DEFAULT_Y_ANGLE && bullet.y <= this.canvas.height
+                && bullet.x > 0 && bullet.x <= this.canvas.width
         );
 
         this.bullets.forEach((bullet) => bullet.draw(ctx));
@@ -44,7 +45,7 @@ export default class BulletController {
         return false;
     }
 
-    shoot(x, y, velocity, timeTillNextBulletAllowed = 0) {
+    shoot(x, y, velocity, timeTillNextBulletAllowed = 0, isDiag = false, diagDirection = "") {
         if (!this.player && this.bullets.length > 0) {
             this.bullets.forEach((bullet) => {
                 if (bullet.y <= 0.6 * this.canvas.height) {
@@ -58,7 +59,7 @@ export default class BulletController {
             this.timeTillNextBulletAllowed <= 0 &&
             this.bullets.length < this.maxBulletsAtATime
         ) {
-            const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor);
+            const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor, isDiag, diagDirection);
             this.bullets.push(bullet);
             if (this.soundEnabled) {
                 this.shootSound.currentTime = 0;
