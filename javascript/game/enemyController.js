@@ -24,7 +24,7 @@ export default class EnemyController {
         this.enemyBulletController = enemyBulletController;
         this.defaultXVelocity = defaultXVelocity;
         this.playerBulletController = playerBulletController;
-        this.enemyDeathSound = new Audio("/resources/sounds/enemy-death.wav");
+        this.enemyDeathSound = new Audio("resources/sounds/enemy-death.wav");
         this.enemyDeathSound.volume = 0.5;
         this.fireBulletTimerDefault = defaultXVelocity;
         this.fireBulletTimer = this.fireBulletTimerDefault;

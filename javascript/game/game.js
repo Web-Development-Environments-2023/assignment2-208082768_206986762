@@ -83,7 +83,7 @@ function increaseVelocity() {
 }
 function drawLives() {
     let img = new Image();
-    img.src = `/resources/images/live.png`;
+    img.src = `resources/images/live.png`;
     for (let i = 0; i < player.lives; i++) {
         ctx.drawImage(img, canvas.width / 2 - i * canvas.height / 75, canvas.height / 75, canvas.height / 75, canvas.height / 75)
     };
@@ -149,7 +149,7 @@ function setupGame() {
     // TODO change canvas height and weight according to the current webpage
 
     background = new Image();
-    background.src = "/resources/images/spaceCat.png";
+    background.src = "resources/images/spaceCat.png";
 
     timerCount = 0;
     timeElapsed = 0; // increment the time elapsed
