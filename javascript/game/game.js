@@ -2,13 +2,6 @@ import EnemyController from "./enemyController.js";
 import Player from "./player.js";
 import BulletController from "./bulletController.js";
 
-//bug fix
-module.exports = {
-    kit: {
-      floc: true
-    }
-  };
-
 var canvas;
 var ctx;
 var player;
