@@ -2,16 +2,17 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/css/MenuStyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/MenuStyle.css" />
     <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" type="text/css" href="/css/gameStyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/gameStyle.css" />
     <title>Space Invaders Game</title>
-    <link rel="icon" href="/resources/images/icon3.png" type="image/png" size="25x25">
+    <link rel="icon" href="resources/images/icon3.png" type="image/png" size="25x25">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="/javascript/game/game.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
@@ -33,7 +34,7 @@
 
 
     <div id="main">
-        <img src="/resources/images/logo.jpg" height="70px" style="top: 0; border-radius: 30px; position: fixed;">
+        <img src="resources/images/logo.jpg" height="70px" style="top: 0; border-radius: 30px; position: fixed;">
         <button class="openbtn" onclick="openNav()">&#9776;</button>
 
 
@@ -267,13 +268,13 @@
                     </tr>
 
                     <tr height="70px">
-                        <td width=33%><img src="/resources/images/myShip1.png" class="choosen" id="myShip1"
+                        <td width=33%><img src="resources/images/myShip1.png" class="choosen" id="myShip1"
                                 name="myShip1" width="60" height="60"
                                 onclick="chooseShip('/resources/images/myShip1.png')"></td>
-                        <td width=33%><img src="/resources/images/myShip2.png" class="choosen" id="myShip2"
+                        <td width=33%><img src="resources/images/myShip2.png" class="choosen" id="myShip2"
                                 name="myShip2" width="60" height="60"
                                 onclick="chooseShip('/resources/images/myShip2.png')"></td>
-                        <td width=33%><img src="/resources/images/myShip3.png" class="choosen" id="myShip3"
+                        <td width=33%><img src="resources/images/myShip3.png" class="choosen" id="myShip3"
                                 name="myShip3" width="60" height="60"
                                 onclick="chooseShip('/resources/images/myShip3.png')"></td>
                     </tr>
@@ -312,12 +313,19 @@
         </footer>
 
     </div>
-
-    <script type="module" src="/javascript/game/game.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="/javascript/menu.js"></script>
     <script type="text/javascript" src="/javascript/registerValidation.js"></script>
     <script type="text/javascript" src="/javascript/logRegCheck.js"></script>
     <script type="text/javascript" src="/javascript/settingsConfig.js"></script>
+=======
+
+    <script type="module" src="javascript/game/game.js"></script>
+    <script type="text/javascript" src="javascript/menu.js"></script>
+    <script type="text/javascript" src="javascript/registerValidation.js"></script>
+    <script type="text/javascript" src="javascript/logRegCheck.js"></script>
+    <script type="text/javascript" src="javascript/settingsConfig.js"></script>
+>>>>>>> 2b873a5c4d3cf4dd4120fe24ef3e3fbfab2c063c
 
     <!-- script for the slider of the time in settings page -->
     <script>
